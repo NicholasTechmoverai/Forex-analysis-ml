@@ -1,0 +1,17 @@
+**/.venv/
+**/.venv*/
+**/.env
+
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+*.log
+
+.ipynb_checkpoints/
+
+.DS_Store
+Thumbs.db
+
+tick_vault_data

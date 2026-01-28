@@ -1,0 +1,11 @@
+pandas
+scikit-learn
+matplotlib
+numpy
+torch
+ucimlrepo
+prequests 
+websockets 
+asyncio
+pyarrow
+python-dotenv
