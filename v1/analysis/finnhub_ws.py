@@ -24,6 +24,7 @@ async def finnhub_stream():
                 for tick in data.get("data", []):
                     price = tick["p"]
                     timestamp = datetime.fromtimestamp(tick["t"]/1000)
+                    # print("Whole::",tick)
                     print(f"[LIVE] {timestamp} → {price}")
 
 # Run WebSocket
