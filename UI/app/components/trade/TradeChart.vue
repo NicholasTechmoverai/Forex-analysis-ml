@@ -785,13 +785,13 @@ const exportChartData = () => {
             class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center">
             <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl text-center max-w-md">
                 <div
-                    class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mx-auto mb-4">
+                    class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-300 to-primary-600 flex items-center justify-center mx-auto mb-4">
                     <UIcon name="i-heroicons-chart-bar" class="w-8 h-8 text-white animate-pulse" />
                 </div>
                 <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Loading Chart</h3>
                 <p class="text-gray-600 dark:text-gray-400 mb-4">Initializing trading visualization...</p>
                 <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                    <div class="bg-blue-600 h-2 rounded-full animate-pulse w-3/4"></div>
+                    <div class="bg-primary-600 h-2 rounded-full animate-pulse w-3/4"></div>
                 </div>
             </div>
         </div>
@@ -832,7 +832,7 @@ const exportChartData = () => {
                         <!-- Symbol and Price -->
                         <div class="flex items-center gap-4">
                             <div v-if="!isMobile"
-                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
                                 <span class="text-white font-bold text-lg">{{ selectedSymbol.split(':')[1].substring(0,
                                     3) }}</span>
                             </div>
@@ -914,7 +914,7 @@ const exportChartData = () => {
                                 <!-- Time Interval -->
                                 <div v-if="selectedChartType === 'candlestick'" class="flex items-center gap-2">
                                     <select v-model="selectedTimeInterval"
-                                        class="bg-gray-100 dark:bg-gray-900/50 border-0 rounded-lg px-3 py-1.5 text-sm text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-blue-500">
+                                        class="bg-gray-100 dark:bg-gray-900/50 border-0 rounded-lg px-3 py-1.5 text-sm text-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-primary-500">
                                         <option v-for="interval in timeIntervals" :key="interval.value"
                                             :value="interval.value">
                                             {{ interval.label }}
@@ -931,7 +931,7 @@ const exportChartData = () => {
                                         View:
                                     </div>
                                     <div class="relative w-24">
-                                        <input type="range" v-model="manualXRange" :min="10" :max="200" step="1"
+                                        <USlider  v-model="manualXRange" :min="10" :max="200" step="1"
                                             @input="updateXAxisRange"
                                             class="w-full h-2 bg-gray-300 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer" />
                                         <div
@@ -968,7 +968,7 @@ const exportChartData = () => {
                                     <button @click="showGrid = !showGrid" :class="[
                                         'p-2 rounded-lg',
                                         showGrid
-                                            ? 'bg-blue-100 dark:bg-blue-900/30 text-primary-700 dark:text-primary-400'
+                                            ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400'
                                             : 'bg-gray-100 dark:bg-gray-900/50 text-gray-700 dark:text-gray-300'
                                     ]">
                                         <UIcon name="i-heroicons-squares-2x2" class="w-4 h-4" />
@@ -1001,7 +1001,7 @@ const exportChartData = () => {
                             <button @click="showGrid = !showGrid" :class="[
                                 'px-2 py-1 rounded text-xs font-medium backdrop-blur-sm flex items-center gap-1 w-fit',
                                 showGrid
-                                    ? 'bg-blue-100 dark:bg-blue-900/30 text-primary-700 dark:text-primary-400'
+                                    ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400'
                                     : 'bg-gray-100 dark:bg-gray-900/50 text-gray-700 dark:text-gray-400'
                             ]">
                                 <UIcon name="i-heroicons-squares-2x2" class="w-3.5 h-3.5" />
@@ -1066,7 +1066,7 @@ const exportChartData = () => {
                             <div v-if="(sortedTrades.length === 0 && candlestickData.length === 0) || !isChartReady"
                                 class="flex flex-col items-center justify-center p-8 text-center">
                                 <div
-                                    class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500/10 to-blue-600/10 flex items-center justify-center mb-3">
+                                    class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-500/10 to-primary-600/10 flex items-center justify-center mb-3">
                                     <UIcon name="i-heroicons-chart-bar"
                                         class="w-8 h-8 text-primary-500 dark:text-primary-400" />
                                 </div>
@@ -1146,13 +1146,13 @@ const exportChartData = () => {
                             :class="[
                                 'p-4 rounded-xl border cursor-pointer transition-all duration-200 hover:scale-[1.02]',
                                 selectedSymbol === symbol.code
-                                    ? 'border-blue-500 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20'
-                                    : 'border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-700'
+                                    ? 'border-primary-500 bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20'
+                                    : 'border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-prirmary-700'
                             ]">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-3">
                                     <div
-                                        class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                                        class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
                                         <span class="text-white font-bold">{{ symbol.code.split(':')[1].substring(0, 3)
                                         }}</span>
                                     </div>
@@ -1264,7 +1264,7 @@ const exportChartData = () => {
 
                         <!-- Current Levels -->
                         <div v-if="showSupportResistance && supportResistanceLevels.length > 0"
-                            class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                            class="p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
                             <p class="text-xs font-medium text-primary-700 dark:text-primary-400 mb-2">
                                 Detected {{ supportResistanceLevels.length }} levels
                             </p>
@@ -1314,7 +1314,7 @@ const exportChartData = () => {
                                     Range Width: {{ manualYRange.toFixed(5) }}
                                 </label>
                             </div>
-                            <input type="range" v-model="manualYRange" :min="0.0001" :max="0.1" step="0.0001"
+                            <USlider  v-model="manualYRange" :min="0.0001" :max="0.1" step="0.0001"
                                 @input="updateYRange"
                                 class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer" />
                             <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
@@ -1371,9 +1371,9 @@ const exportChartData = () => {
                                     Data Points: {{ manualXRange }}
                                 </label>
                             </div>
-                            <input type="range" v-model="manualXRange" :min="10" :max="200" step="1"
-                                @input="updateXAxisRange"
-                                class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer" />
+                              <USlider v-model="manualXRange" class="cursor-pointer"/>
+
+                            
                             <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mt-1">
                                 <span>10</span>
                                 <span>200</span>
@@ -1397,7 +1397,7 @@ const exportChartData = () => {
                             Export Chart Data (CSV)
                         </button>
 
-                        <div class="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                        <div class="p-3 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
                             <p class="text-xs text-primary-700 dark:text-primary-400">
                                 <UIcon name="i-heroicons-information-circle" class="w-4 h-4 inline mr-1" />
                                 <strong>Tip:</strong> Horizontal lines have centered labels. Click the "✕" to remove
@@ -1443,52 +1443,7 @@ const exportChartData = () => {
     background: #9ca3af;
 }
 
-/* Custom range slider styling */
-input[type="range"]::-webkit-slider-thumb {
-    appearance: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #3b82f6;
-    cursor: pointer;
-    border: 2px solid white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
 
-input[type="range"]::-webkit-slider-thumb:hover {
-    background: #2563eb;
-}
-
-input[type="range"]::-moz-range-thumb {
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: #3b82f6;
-    cursor: pointer;
-    border: 2px solid white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* Range track */
-input[type="range"]::-webkit-slider-runnable-track {
-    height: 4px;
-    border-radius: 2px;
-    background: #d1d5db;
-}
-
-input[type="range"]::-moz-range-track {
-    height: 4px;
-    border-radius: 2px;
-    background: #d1d5db;
-}
-
-.dark input[type="range"]::-webkit-slider-runnable-track {
-    background: #4b5563;
-}
-
-.dark input[type="range"]::-moz-range-track {
-    background: #4b5563;
-}
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
