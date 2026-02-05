@@ -1,8 +1,12 @@
+<script setup lang="ts">
+
+</script>
+
 <template>
         <UHeader>
       <template #left>
         <NuxtLink to="/">
-          <AppLogo class="w-auto h-6 shrink-0" />
+          <AppLogo :size="2"/>
         </NuxtLink>
 
         <TemplateMenu />
