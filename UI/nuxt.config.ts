@@ -31,10 +31,12 @@ export default defineNuxtConfig({
       finhubApiKey: process.env.FINNHUB_API_KEY
     }
   },
-    components: {
+  components: {
     global: true,
     dirs: [
       { path: '~/components/trade', pathPrefix: false },
+      { path: '~/components/default', pathPrefix: false },
+
     ]
   },
 })
